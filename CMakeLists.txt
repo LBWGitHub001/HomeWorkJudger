@@ -5,6 +5,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+
+add_definitions(-DNUM_QUESTIONS=10)
 # find dependencies
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
@@ -16,7 +18,7 @@ file(GLOB_RECURSE SOURCES src/*.cpp)
 
 ament_auto_add_library(judger SHARED  ${SOURCES})
 
-ament_auto_add_executable(${PROJECT_NAME}_node test/test.cpp )
+ament_auto_add_executable(${PROJECT_NAME}_node test/test.cpp)
 target_link_libraries(${PROJECT_NAME}_node judger)
 
 # uncomment the following section in order to fill in
